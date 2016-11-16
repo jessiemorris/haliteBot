@@ -2,7 +2,7 @@ $:.unshift(File.dirname(__FILE__))
 require 'networking'
 
 def calculateMove(location,site)
-  if(site.strength > site.production * 2)
+  if(site.strength > 0)
     Move.new(location, GameMap::DIRECTIONS.shuffle.first)
   else
     #:still, cant figure out how to used named arrays
@@ -13,7 +13,7 @@ end
 
 
 
-network = Networking.new("RubyBot")
+network = Networking.new("RubyBotv0")
 tag, map = network.configure
 
 while true
