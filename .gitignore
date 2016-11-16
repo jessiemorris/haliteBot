@@ -11,8 +11,9 @@
 /tmp/
 
 #Specific to halite
-.log
-.hlt
+*.log
+*.hlt
+halite
 
 # Used by dotenv library to load environment variables.
 # .env
