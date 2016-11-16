@@ -1,6 +1,6 @@
 $:.unshift(File.dirname(__FILE__))
 require 'networking'
-
+#test
 def calculateMove(location,site)
   if(site.strength > 0)
     Move.new(location, GameMap::DIRECTIONS.shuffle.first)
