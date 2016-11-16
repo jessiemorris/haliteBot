@@ -1,9 +1,16 @@
 $:.unshift(File.dirname(__FILE__))
 require 'networking'
 
-def calculateMove(location)
-  Move.new(location, GameMap::DIRECTIONS.shuffle.first)
+def calculateMove(location,site)
+  if(site.strength > 0)
+    Move.new(location, GameMap::DIRECTIONS.shuffle.first)
+  else
+    #:still, cant figure out how to used named arrays
+    Move.new(location, GameMap::DIRECTIONS[0])
+  end
+
 end
+
 
 
 network = Networking.new("RubyBot")
@@ -19,7 +26,7 @@ while true
       site = map.site(loc)
 
       if site.owner == tag
-        moves << calculateMove(loc) 
+        moves << calculateMove(loc, site) 
       end
     end
   end
