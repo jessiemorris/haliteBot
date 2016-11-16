@@ -1,6 +1,11 @@
 $:.unshift(File.dirname(__FILE__))
 require 'networking'
 
+def calculateMove(location)
+  Move.new(location, GameMap::DIRECTIONS.shuffle.first)
+end
+
+
 network = Networking.new("RubyBot")
 tag, map = network.configure
 
@@ -14,7 +19,7 @@ while true
       site = map.site(loc)
 
       if site.owner == tag
-        moves << Move.new(loc, GameMap::DIRECTIONS.shuffle.first)
+        moves << calculateMove(loc) 
       end
     end
   end
