@@ -6,7 +6,7 @@ def calculateMove(location,site)
     Move.new(location, GameMap::DIRECTIONS.shuffle.first)
   else
     #:still, cant figure out how to used named arrays
-    Move.new(location, GameMap::DIRECTIONS[0])
+    Move.new(location, :still)
   end
 
 end
